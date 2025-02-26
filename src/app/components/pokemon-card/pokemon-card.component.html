@@ -1,0 +1,13 @@
+<ion-item (click)="navigateToDetails()">
+  <ion-thumbnail slot="start">
+    <img
+      [src]="
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
+        pokemonId +
+        '.png'
+      "
+      alt="{{ pokemon.name }}"
+    />
+  </ion-thumbnail>
+  <ion-label>{{ pokemon.name | titlecase }}</ion-label>
+</ion-item>
