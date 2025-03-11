@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pokédex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (ionInput)="filterPokemon()"
+  ></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let pokemon of filteredPokemonList">
+      <ion-thumbnail slot="start">
+        <img
+          [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + (pokemon.url.split('/')[6]) + '.png'"
+          alt="{{ pokemon.name }}"
+        />
+      </ion-thumbnail>
+      <ion-label>{{ pokemon.name | titlecase }}</ion-label>
+      <ion-button
+        color="primary"
+        [routerLink]="['/pokemon-detail', pokemon.name]"
+      >
+        Ver Detalles
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
